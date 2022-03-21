@@ -1,1 +1,1 @@
-delim_whitespace
+lin + 1, 0
