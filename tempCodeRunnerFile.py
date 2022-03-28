@@ -1,1 +1,1 @@
-lin + 1, 0
+data, moins1
