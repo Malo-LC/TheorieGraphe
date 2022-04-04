@@ -1,4 +1,5 @@
-from typing import Type
+from asyncore import write
+import numpy as np
 import initTable
 import affichage
 import question2
@@ -22,7 +23,8 @@ def affichageQuestion():
     print("3 - Détecter si c'est un graphe d'ordonnancement")
     print("4 - Calculer les rangs de tous les sommets du graphe")
     print("5 - Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges")
-    print("6 - Quitter")
+    print("6 - Executer toutes les opérations")
+    print("7 - Quitter")
 
 
 def menu():
@@ -41,7 +43,7 @@ def menu():
             pass
 
     print("Table " + choix + " choisie")
-
+    fichierTrace = open(("TraceTable " + str(choix) + ".txt"), "w")
     tabContr = initTable.choisirTXT(choix)
     tabContr = initTable.AlphaOmega(tabContr)
     matriceAdj = question2.matriceAdjacence(tabContr)
@@ -50,30 +52,74 @@ def menu():
     affichageQuestion()
     choixSecond = input(
         "Choisissez le nombre correspondant à la ligne : ")
-    while (choixSecond != '6'):
+    while (choixSecond != '7'):
 
         if (choixSecond == '1'):
-            affichage.afficherGraphOrdo(tabContr)
+            affichage.afficherGraphOrdo(tabContr, fichierTrace)
         elif (choixSecond == '2'):
-            print('\n')
+            print('\nMatrice d', "'", 'adjacence')
+            fichierTrace.write('\n Matrice d' + "'" + 'adjacence\n')
 
-            print('Matrice d', "'", 'adjacence')
             print(matriceAdj)
-            print('\n')
-            print('Matrice des valeurs')
-            affichage.afficherMatValeurs(matriceValeurs)
+            fichierTrace.write(str(matriceAdj))
+
+            print('\nMatrice des valeurs')
+            fichierTrace.write('\nMatrice des valeurs\n')
+
+            affichage.afficherMatValeurs(matriceValeurs, fichierTrace)
         elif (choixSecond == '3'):
-            print('\n')
+            print('\nDetection du circuit')
+            fichierTrace.write('\nDetection du circuit')
 
-            print('Detection du circuit')
-            print('Méthode d’élimination des points d’entrée')
-            if(question3.detectionCircuit(matriceAdj, matriceValeurs) == 1):
-                question3.detectionOrdonnancement(tabContr)
-            question4.rangDesSommets(matriceAdj, matriceValeurs)
+            print('\nMéthode d’élimination des points d’entrée')
+            fichierTrace.write("\nMethode d'elimination des points d'entree")
 
-        # elif choixSecond == '4' :
+            if(question3.detectionCircuit(matriceAdj, matriceValeurs, fichierTrace) == 1):
+                question3.detectionOrdonnancement(tabContr, fichierTrace)
 
+        elif choixSecond == '4':
+
+            print('\nDetection du circuit')
+            fichierTrace.write('\nDetection du circuit')
+
+            print('\nMéthode d’élimination des points d’entrée')
+            fichierTrace.write("\nMethode d'elimination des points d'entree")
+
+            if(question3.detectionCircuit(matriceAdj, matriceValeurs, fichierTrace) == 1):
+                question3.detectionOrdonnancement(tabContr, fichierTrace)
+                RangSommet = question4.rangDesSommets(
+                    matriceAdj, matriceValeurs, 0, np.array([]))
+                affichage.afficherRang(RangSommet, fichierTrace)
+            else:
+                print('Circuit détecté, impossible de calculer le rang !')
+                fichierTrace.write(
+                    'Circuit detecte, impossible de calculer le rang !')
         # elif choixSecond == '5' :
+
+        elif choixSecond == '6':
+            affichage.afficherGraphOrdo(tabContr, fichierTrace)
+
+            print('\nMatrice d', "'", 'adjacence')
+            fichierTrace.write('\n Matrice d' + "'" + 'adjacence\n')
+            print(matriceAdj)
+            fichierTrace.write(str(matriceAdj))
+            print('\nMatrice des valeurs')
+            fichierTrace.write('\nMatrice des valeurs\n')
+            affichage.afficherMatValeurs(matriceValeurs, fichierTrace)
+
+            print('\nDetection du circuit')
+            fichierTrace.write('\nDetection du circuit')
+            print('\nMéthode d’élimination des points d’entrée')
+            fichierTrace.write("\nMethode d'elimination des points d'entree")
+            if(question3.detectionCircuit(matriceAdj, matriceValeurs, fichierTrace) == 1):
+                question3.detectionOrdonnancement(tabContr, fichierTrace)
+                RangSommet = question4.rangDesSommets(
+                    matriceAdj, matriceValeurs, 0, np.array([]))
+                affichage.afficherRang(RangSommet, fichierTrace)
+            else:
+                print('Circuit détecté, impossible de calculer le rang !')
+                fichierTrace.write(
+                    'Circuit detecte, impossible de calculer le rang !')
 
         else:
             print('Choix invalide ! ')
