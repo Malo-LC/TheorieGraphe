@@ -26,6 +26,61 @@ def affichageQuestion():
     print("5 - Calculer le calendrier au plus tôt, le calendrier au plus tard et les marges")
     print("6 - Executer toutes les opérations")
     print("7 - Quitter")
+    print("8 - Executer toutes les opérations sur tout les fichiers")
+
+
+def ToutPartout():
+    for i in range(1, 13):
+        choix = str(i)
+        print("Table " + choix + " choisie")
+        fichierTrace = open(("TraceTable " + str(choix) + ".txt"), "w")
+        tabContr = initTable.choisirTXT(choix)
+        tabContr = initTable.AlphaOmega(tabContr)
+        matriceAdj = question2.matriceAdjacence(tabContr)
+        matriceValeurs = question2.matriceDesValeurs(tabContr)
+        affichage.afficherGraphOrdo(tabContr, fichierTrace)
+
+        print('\nMatrice d', "'", 'adjacence')
+        fichierTrace.write('\n Matrice d' + "'" + 'adjacence\n')
+        print(matriceAdj)
+        fichierTrace.write(str(matriceAdj))
+        print('\nMatrice des valeurs')
+        fichierTrace.write('\nMatrice des valeurs\n')
+        affichage.afficherMatValeurs(matriceValeurs, fichierTrace)
+
+        print('\nDetection du circuit')
+        fichierTrace.write('\nDetection du circuit')
+        print('\nMéthode d’élimination des points d’entrée')
+        fichierTrace.write("\nMethode d'elimination des points d'entree")
+        if(question3.detectionCircuit(matriceAdj, matriceValeurs, fichierTrace) == 1):
+            question3.detectionOrdonnancement(tabContr, fichierTrace)
+            RangSommet = question4.rangDesSommets(
+                matriceAdj, matriceValeurs, 0, np.empty((0, 5), dtype=int))
+            affichage.afficherRang(RangSommet, fichierTrace)
+            print('')
+
+            print("Dates au plus tôt")
+            calTot = question5.calendrierTot(tabContr, RangSommet)
+            print(calTot)
+            fichierTrace.write('\n')
+            fichierTrace.write('Dates au plus tot\n')
+            fichierTrace.write(calTot.to_string())
+            fichierTrace.write('\n')
+
+            print("")
+            print("Dates au plus tard")
+
+            calTard = question5.calendrierTard(tabContr, RangSommet)
+            print(calTard)
+            fichierTrace.write('\n')
+            fichierTrace.write('Dates au plus tard\n')
+
+            fichierTrace.write(calTard.to_string())
+            fichierTrace.write('\n')
+        else:
+            print('Circuit détecté, impossible de calculer le rang !')
+            fichierTrace.write(
+                'Circuit detecte, impossible de calculer le rang !')
 
 
 def menu():
@@ -103,9 +158,26 @@ def menu():
                 RangSommet = question4.rangDesSommets(
                     matriceAdj, matriceValeurs, 0, np.empty((0, 5), dtype=int))
                 print('')
-                df = question5.calendrierTot(tabContr, RangSommet)
+
+                print("Dates au plus tôt")
+                calTot = question5.calendrierTot(tabContr, RangSommet)
+                print(calTot)
                 fichierTrace.write('\n')
-                fichierTrace.write(df.to_string())
+                fichierTrace.write('Dates au plus tot\n')
+                fichierTrace.write(calTot.to_string())
+                fichierTrace.write('\n')
+
+                print("")
+                print("Dates au plus tard")
+
+                calTard = question5.calendrierTard(tabContr, RangSommet)
+                print(calTard)
+                fichierTrace.write('\n')
+                fichierTrace.write('Dates au plus tard\n')
+
+                fichierTrace.write(calTard.to_string())
+                fichierTrace.write('\n')
+
             else:
                 print('Circuit détecté, impossible de calculer le rang !')
                 fichierTrace.write(
@@ -129,16 +201,35 @@ def menu():
             if(question3.detectionCircuit(matriceAdj, matriceValeurs, fichierTrace) == 1):
                 question3.detectionOrdonnancement(tabContr, fichierTrace)
                 RangSommet = question4.rangDesSommets(
-                    matriceAdj, matriceValeurs, 0, np.array([]))
+                    matriceAdj, matriceValeurs, 0, np.empty((0, 5), dtype=int))
                 affichage.afficherRang(RangSommet, fichierTrace)
-                df = question5.calendrierTot(tabContr, RangSommet)
+                print('')
+
+                print("Dates au plus tôt")
+                calTot = question5.calendrierTot(tabContr, RangSommet)
+                print(calTot)
                 fichierTrace.write('\n')
-                fichierTrace.write(df.to_string())
+                fichierTrace.write('Dates au plus tot\n')
+                fichierTrace.write(calTot.to_string())
+                fichierTrace.write('\n')
+
+                print("")
+                print("Dates au plus tard")
+
+                calTard = question5.calendrierTard(tabContr, RangSommet)
+                print(calTard)
+                fichierTrace.write('\n')
+                fichierTrace.write('Dates au plus tard\n')
+
+                fichierTrace.write(calTard.to_string())
+                fichierTrace.write('\n')
             else:
                 print('Circuit détecté, impossible de calculer le rang !')
                 fichierTrace.write(
                     'Circuit detecte, impossible de calculer le rang !')
 
+        elif choixSecond == '8':
+            ToutPartout()
         else:
             print('Choix invalide ! ')
 

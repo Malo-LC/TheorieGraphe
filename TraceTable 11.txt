@@ -1,0 +1,125 @@
+il y a 10 sommets
+il y a 16 arcs
+0 -> 1 = 0
+1 -> 2 = 1
+4 -> 2 = 2
+2 -> 3 = 1
+1 -> 4 = 1
+5 -> 4 = 5
+1 -> 5 = 1
+4 -> 6 = 2
+5 -> 6 = 5
+3 -> 7 = 4
+5 -> 7 = 5
+2 -> 8 = 1
+4 -> 8 = 2
+6 -> 8 = 6
+7 -> 8 = 3
+8 -> 9 = 0
+
+ Matrice d'adjacence
+[[0 0 1 2 3 4 5 6 7 8 9]
+ [0 0 1 0 0 0 0 0 0 0 0]
+ [1 0 0 1 0 1 1 0 0 0 0]
+ [2 0 0 0 1 0 0 0 0 1 0]
+ [3 0 0 0 0 0 0 0 1 0 0]
+ [4 0 0 1 0 0 0 1 0 1 0]
+ [5 0 0 0 0 1 0 1 1 0 0]
+ [6 0 0 0 0 0 0 0 0 1 0]
+ [7 0 0 0 0 0 0 0 0 1 0]
+ [8 0 0 0 0 0 0 0 0 0 1]
+ [9 0 0 0 0 0 0 0 0 0 0]]
+Matrice des valeurs
+
+    0   1   2   3   4   5   6   7   8   9   
+0   *   0   *   *   *   *   *   *   *   *   
+1   *   *   1   *   1   1   *   *   *   *   
+2   *   *   *   2   *   *   *   *   2   *   
+3   *   *   *   *   *   *   *   3   *   *   
+4   *   *   4   *   *   *   4   *   4   *   
+5   *   *   *   *   5   *   5   5   *   *   
+6   *   *   *   *   *   *   *   *   6   *   
+7   *   *   *   *   *   *   *   *   7   *   
+8   *   *   *   *   *   *   *   *   *   8   
+9   *   *   *   *   *   *   *   *   *   *   
+
+Detection du circuit
+Methode d'elimination des points d'entree
+Sommets restants : [0 1 2 3 4 5 6 7 8 9]
+Sommets sans predecesseurs : [0]
+Suppression des sommets...
+
+Sommets restants : [1 2 3 4 5 6 7 8 9]
+Sommets sans predecesseurs : [1]
+Suppression des sommets...
+
+Sommets restants : [2 3 4 5 6 7 8 9]
+Sommets sans predecesseurs : [5]
+Suppression des sommets...
+
+Sommets restants : [2 3 4 6 7 8 9]
+Sommets sans predecesseurs : [4]
+Suppression des sommets...
+
+Sommets restants : [2 3 6 7 8 9]
+Sommets sans predecesseurs : [2 6]
+Suppression des sommets...
+
+Sommets restants : [3 7 8 9]
+Sommets sans predecesseurs : [3]
+Suppression des sommets...
+
+Sommets restants : [7 8 9]
+Sommets sans predecesseurs : [7]
+Suppression des sommets...
+
+Sommets restants : [8 9]
+Sommets sans predecesseurs : [8]
+Suppression des sommets...
+
+Sommets restants : [9]
+Sommets sans predecesseurs : [9]
+Suppression des sommets...
+
+Il n'y a pas de circuit !
+Les valeurs pour tous les arcs incidents vers l'exterieur a un sommet sont identiques
+Les arcs | 0 -> 1 | sont nuls 
+Il n'y a pas d'arcs negatifs
+ -> C'est bien un graphe d'ordonnancement
+
+Rang des sommets
+Rang 0 -> 0 
+Rang 1 -> 1 
+Rang 2 -> 5 
+Rang 3 -> 4 
+Rang 4 -> 2 6 
+Rang 5 -> 3 
+Rang 6 -> 7 
+Rang 7 -> 8 
+Rang 8 -> 9 
+
+Dates au plus tot
+   Rang  Tache  longueur Predecesseurs Date par predecesseurs  Date au plus tot
+0     0      0         0            []                    [0]                 0
+1     1      1         1           [0]                    [0]                 0
+2     2      5         5           [1]                    [1]                 1
+3     3      4         2        [1, 5]                 [1, 6]                 6
+4     4      2         1        [1, 4]                 [1, 8]                 8
+5     4      6         6        [4, 5]                 [8, 6]                 8
+6     5      3         4           [2]                    [9]                 9
+7     6      7         3        [3, 5]                [13, 6]                13
+8     7      8         0  [2, 4, 6, 7]         [9, 8, 14, 16]                16
+9     8      9         0           [8]                   [16]                16
+
+Dates au plus tard
+   Rang  Tache  longueur Successeurs Date par Successeurs  Date au plus Tard
+0     0      0         0         [1]                  [0]                  0
+1     1      1         1   [2, 4, 5]            [7, 5, 0]                  0
+2     2      5         5   [4, 6, 7]            [1, 5, 8]                  1
+3     3      4         2   [2, 6, 8]           [6, 8, 14]                  6
+5     4      2         1      [3, 8]              [8, 15]                  8
+4     4      6         6         [8]                 [10]                 10
+6     5      3         4         [7]                  [9]                  9
+7     6      7         3         [8]                 [13]                 13
+8     7      8         0         [9]                 [16]                 16
+9     8      9         0          []                 [16]                 16

@@ -1,0 +1,138 @@
+il y a 14 sommets
+il y a 23 arcs
+0 -> 1 = 0
+0 -> 2 = 0
+1 -> 3 = 10
+2 -> 3 = 10
+1 -> 4 = 10
+2 -> 4 = 10
+4 -> 5 = 5
+5 -> 6 = 4
+4 -> 7 = 5
+5 -> 8 = 4
+7 -> 8 = 2
+9 -> 8 = 8
+3 -> 9 = 9
+4 -> 9 = 5
+3 -> 10 = 9
+9 -> 10 = 8
+6 -> 11 = 2
+8 -> 11 = 4
+10 -> 11 = 12
+1 -> 12 = 10
+6 -> 12 = 2
+11 -> 13 = 2
+12 -> 13 = 20
+
+ Matrice d'adjacence
+[[ 0  0  1  2  3  4  5  6  7  8  9 10 11 12 13]
+ [ 0  0  1  1  0  0  0  0  0  0  0  0  0  0  0]
+ [ 1  0  0  0  1  1  0  0  0  0  0  0  0  1  0]
+ [ 2  0  0  0  1  1  0  0  0  0  0  0  0  0  0]
+ [ 3  0  0  0  0  0  0  0  0  0  1  1  0  0  0]
+ [ 4  0  0  0  0  0  1  0  1  0  1  0  0  0  0]
+ [ 5  0  0  0  0  0  0  1  0  1  0  0  0  0  0]
+ [ 6  0  0  0  0  0  0  0  0  0  0  0  1  1  0]
+ [ 7  0  0  0  0  0  0  0  0  1  0  0  0  0  0]
+ [ 8  0  0  0  0  0  0  0  0  0  0  0  1  0  0]
+ [ 9  0  0  0  0  0  0  0  0  1  0  1  0  0  0]
+ [10  0  0  0  0  0  0  0  0  0  0  0  1  0  0]
+ [11  0  0  0  0  0  0  0  0  0  0  0  0  0  1]
+ [12  0  0  0  0  0  0  0  0  0  0  0  0  0  1]
+ [13  0  0  0  0  0  0  0  0  0  0  0  0  0  0]]
+Matrice des valeurs
+
+    0   1   2   3   4   5   6   7   8   9   10  11  12  13  
+0   *   0   0   *   *   *   *   *   *   *   *   *   *   *   
+1   *   *   *   1   1   *   *   *   *   *   *   *   1   *   
+2   *   *   *   2   2   *   *   *   *   *   *   *   *   *   
+3   *   *   *   *   *   *   *   *   *   3   3   *   *   *   
+4   *   *   *   *   *   4   *   4   *   4   *   *   *   *   
+5   *   *   *   *   *   *   5   *   5   *   *   *   *   *   
+6   *   *   *   *   *   *   *   *   *   *   *   6   6   *   
+7   *   *   *   *   *   *   *   *   7   *   *   *   *   *   
+8   *   *   *   *   *   *   *   *   *   *   *   8   *   *   
+9   *   *   *   *   *   *   *   *   9   *   9   *   *   *   
+10  *   *   *   *   *   *   *   *   *   *   *   10  *   *   
+11  *   *   *   *   *   *   *   *   *   *   *   *   *   11  
+12  *   *   *   *   *   *   *   *   *   *   *   *   *   12  
+13  *   *   *   *   *   *   *   *   *   *   *   *   *   *   
+
+Detection du circuit
+Methode d'elimination des points d'entree
+Sommets restants : [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13]
+Sommets sans predecesseurs : [0]
+Suppression des sommets...
+
+Sommets restants : [ 1  2  3  4  5  6  7  8  9 10 11 12 13]
+Sommets sans predecesseurs : [1 2]
+Suppression des sommets...
+
+Sommets restants : [ 3  4  5  6  7  8  9 10 11 12 13]
+Sommets sans predecesseurs : [3 4]
+Suppression des sommets...
+
+Sommets restants : [ 5  6  7  8  9 10 11 12 13]
+Sommets sans predecesseurs : [5 7 9]
+Suppression des sommets...
+
+Sommets restants : [ 6  8 10 11 12 13]
+Sommets sans predecesseurs : [ 6  8 10]
+Suppression des sommets...
+
+Sommets restants : [11 12 13]
+Sommets sans predecesseurs : [11 12]
+Suppression des sommets...
+
+Sommets restants : [13]
+Sommets sans predecesseurs : [13]
+Suppression des sommets...
+
+Il n'y a pas de circuit !
+Les valeurs pour tous les arcs incidents vers l'exterieur a un sommet sont identiques
+Les arcs | 0 -> 1 | 0 -> 2 | sont nuls 
+Il n'y a pas d'arcs negatifs
+ -> C'est bien un graphe d'ordonnancement
+
+Rang des sommets
+Rang 0 -> 0 
+Rang 1 -> 1 2 
+Rang 2 -> 3 4 
+Rang 3 -> 5 7 9 
+Rang 4 -> 6 8 10 
+Rang 5 -> 11 12 
+Rang 6 -> 13 
+
+Dates au plus tot
+    Rang  Tache  longueur Predecesseurs Date par predecesseurs  Date au plus tot
+0      0      0         0            []                    [0]                 0
+1      1      1        10           [0]                    [0]                 0
+2      1      2        10           [0]                    [0]                 0
+3      2      3         9        [1, 2]               [10, 10]                10
+4      2      4         5        [1, 2]               [10, 10]                10
+5      3      5         4           [4]                   [15]                15
+6      3      7         2           [4]                   [15]                15
+7      3      9         8        [3, 4]               [19, 15]                19
+8      4      6         2           [5]                   [19]                19
+9      4      8         4     [5, 7, 9]           [19, 17, 27]                27
+10     4     10        12        [3, 9]               [19, 27]                27
+11     5     11         2    [6, 8, 10]           [21, 31, 39]                39
+12     5     12        20        [1, 6]               [10, 21]                21
+13     6     13         0      [11, 12]               [41, 41]                41
+
+Dates au plus tard
+    Rang  Tache  longueur Successeurs Date par Successeurs  Date au plus Tard
+0      0      0         0      [1, 2]               [0, 0]                  0
+2      1      1        10  [3, 4, 12]           [0, 0, 11]                  0
+1      1      2        10      [3, 4]               [0, 0]                  0
+4      2      3         9     [9, 10]             [10, 18]                 10
+3      2      4         5   [5, 7, 9]         [10, 28, 14]                 10
+7      3      5         4      [6, 8]             [15, 31]                 15
+6      3      7         2         [8]                 [33]                 33
+5      3      9         8     [8, 10]             [27, 19]                 19
+10     4      6         2    [11, 12]             [37, 19]                 19
+9      4      8         4        [11]                 [35]                 35
+8      4     10        12        [11]                 [27]                 27
+12     5     11         2        [13]                 [39]                 39
+11     5     12        20        [13]                 [21]                 21
+13     6     13         0          []                 [41]                 41

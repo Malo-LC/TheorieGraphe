@@ -1,0 +1,120 @@
+il y a 10 sommets
+il y a 16 arcs
+0 -> 1 = 0
+1 -> 2 = 2
+2 -> 3 = 3
+1 -> 4 = 2
+2 -> 4 = 3
+1 -> 5 = 2
+4 -> 5 = 6
+4 -> 6 = 6
+5 -> 6 = 2
+3 -> 7 = 5
+5 -> 7 = 2
+2 -> 8 = 3
+4 -> 8 = 6
+7 -> 8 = 6
+6 -> 9 = 1
+8 -> 9 = 1
+
+ Matrice d'adjacence
+[[0 0 1 2 3 4 5 6 7 8 9]
+ [0 0 1 0 0 0 0 0 0 0 0]
+ [1 0 0 1 0 1 1 0 0 0 0]
+ [2 0 0 0 1 1 0 0 0 1 0]
+ [3 0 0 0 0 0 0 0 1 0 0]
+ [4 0 0 0 0 0 1 1 0 1 0]
+ [5 0 0 0 0 0 0 1 1 0 0]
+ [6 0 0 0 0 0 0 0 0 0 1]
+ [7 0 0 0 0 0 0 0 0 1 0]
+ [8 0 0 0 0 0 0 0 0 0 1]
+ [9 0 0 0 0 0 0 0 0 0 0]]
+Matrice des valeurs
+
+    0   1   2   3   4   5   6   7   8   9   
+0   *   0   *   *   *   *   *   *   *   *   
+1   *   *   1   *   1   1   *   *   *   *   
+2   *   *   *   2   2   *   *   *   2   *   
+3   *   *   *   *   *   *   *   3   *   *   
+4   *   *   *   *   *   4   4   *   4   *   
+5   *   *   *   *   *   *   5   5   *   *   
+6   *   *   *   *   *   *   *   *   *   6   
+7   *   *   *   *   *   *   *   *   7   *   
+8   *   *   *   *   *   *   *   *   *   8   
+9   *   *   *   *   *   *   *   *   *   *   
+
+Detection du circuit
+Methode d'elimination des points d'entree
+Sommets restants : [0 1 2 3 4 5 6 7 8 9]
+Sommets sans predecesseurs : [0]
+Suppression des sommets...
+
+Sommets restants : [1 2 3 4 5 6 7 8 9]
+Sommets sans predecesseurs : [1]
+Suppression des sommets...
+
+Sommets restants : [2 3 4 5 6 7 8 9]
+Sommets sans predecesseurs : [2]
+Suppression des sommets...
+
+Sommets restants : [3 4 5 6 7 8 9]
+Sommets sans predecesseurs : [3 4]
+Suppression des sommets...
+
+Sommets restants : [5 6 7 8 9]
+Sommets sans predecesseurs : [5]
+Suppression des sommets...
+
+Sommets restants : [6 7 8 9]
+Sommets sans predecesseurs : [6 7]
+Suppression des sommets...
+
+Sommets restants : [8 9]
+Sommets sans predecesseurs : [8]
+Suppression des sommets...
+
+Sommets restants : [9]
+Sommets sans predecesseurs : [9]
+Suppression des sommets...
+
+Il n'y a pas de circuit !
+Les valeurs pour tous les arcs incidents vers l'exterieur a un sommet sont identiques
+Les arcs | 0 -> 1 | sont nuls 
+Il n'y a pas d'arcs negatifs
+ -> C'est bien un graphe d'ordonnancement
+
+Rang des sommets
+Rang 0 -> 0 
+Rang 1 -> 1 
+Rang 2 -> 2 
+Rang 3 -> 3 4 
+Rang 4 -> 5 
+Rang 5 -> 6 7 
+Rang 6 -> 8 
+Rang 7 -> 9 
+
+Dates au plus tot
+   Rang  Tache  longueur Predecesseurs Date par predecesseurs  Date au plus tot
+0     0      0         0            []                    [0]                 0
+1     1      1         2           [0]                    [0]                 0
+2     2      2         3           [1]                    [2]                 2
+3     3      3         5           [2]                    [5]                 5
+4     3      4         6        [1, 2]                 [2, 5]                 5
+5     4      5         2        [1, 4]                [2, 11]                11
+6     5      6         1        [4, 5]               [11, 13]                13
+7     5      7         6        [3, 5]               [10, 13]                13
+8     6      8         1     [2, 4, 7]            [5, 11, 19]                19
+9     7      9         0        [6, 8]               [14, 20]                20
+
+Dates au plus tard
+   Rang  Tache  longueur Successeurs Date par Successeurs  Date au plus Tard
+0     0      0         0         [1]                  [0]                  0
+1     1      1         2   [2, 4, 5]            [0, 3, 9]                  0
+2     2      2         3   [3, 4, 8]           [5, 2, 16]                  2
+4     3      3         5         [7]                  [8]                  8
+3     3      4         6   [5, 6, 8]          [5, 13, 13]                  5
+5     4      5         2      [6, 7]             [17, 11]                 11
+7     5      6         1         [9]                 [19]                 19
+6     5      7         6         [8]                 [13]                 13
+8     6      8         1         [9]                 [19]                 19
+9     7      9         0          []                 [20]                 20
