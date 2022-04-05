@@ -1,0 +1,55 @@
+
+Detection du circuit
+Methode d'elimination des points d'entree
+Sommets restants : [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14]
+Sommets sans predecesseurs : [0]
+Suppression des sommets...
+
+Sommets restants : [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14]
+Sommets sans predecesseurs : [1 2]
+Suppression des sommets...
+
+Sommets restants : [ 3  4  5  6  7  8  9 10 11 12 13 14]
+Sommets sans predecesseurs : [3 6]
+Suppression des sommets...
+
+Sommets restants : [ 4  5  7  8  9 10 11 12 13 14]
+Sommets sans predecesseurs : [ 4  7 11]
+Suppression des sommets...
+
+Sommets restants : [ 5  8  9 10 12 13 14]
+Sommets sans predecesseurs : [ 8 13]
+Suppression des sommets...
+
+Sommets restants : [ 5  9 10 12 14]
+Sommets sans predecesseurs : [5 9]
+Suppression des sommets...
+
+Sommets restants : [10 12 14]
+Sommets sans predecesseurs : [10]
+Suppression des sommets...
+
+Sommets restants : [12 14]
+Sommets sans predecesseurs : [12]
+Suppression des sommets...
+
+Sommets restants : [14]
+Sommets sans predecesseurs : [14]
+Suppression des sommets...
+
+Il n'y a pas de circuit !
+Les valeurs pour tous les arcs incidents vers l'exterieur a un sommet sont identiques
+Les arcs | 0 -> 1 | 0 -> 2 | sont nuls 
+Il n'y a pas d'arcs negatifs
+ -> C'est bien un graphe d'ordonnancement
+
+Rang des sommets
+Rang0 -> 
+Rang1 -> 
+Rang2 -> 
+Rang3 -> 
+Rang4 -> 
+Rang5 -> 
+Rang6 -> 
+Rang7 -> 
+Rang8 -> 

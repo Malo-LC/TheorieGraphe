@@ -1,3 +1,6 @@
+from this import d
+
+
 def nbSommets(data):
     shape = data.shape
     return shape[0]
@@ -58,5 +61,14 @@ def afficherRang(data, f):
     f.write('\n\nRang des sommets\n')
     print('\nRang des sommets')
     for i in range(len(data)):
-        print(data[i])
-        f.write(str(data[i]) + '\n')
+        print("Rang ", i, end=" ")
+        f.write("Rang ")
+        f.write(str(i))
+        print("-> ", end="")
+        f.write(" -> ")
+        for j in range(5):
+            if(data[i][j] >= 0):
+                print(data[i][j], end=" ")
+                f.write(str(data[i][j]) + ' ')
+        print("")
+        f.write("\n")

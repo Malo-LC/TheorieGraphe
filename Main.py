@@ -5,6 +5,7 @@ import affichage
 import question2
 import question3
 import question4
+import question5
 import os
 
 
@@ -88,13 +89,27 @@ def menu():
             if(question3.detectionCircuit(matriceAdj, matriceValeurs, fichierTrace) == 1):
                 question3.detectionOrdonnancement(tabContr, fichierTrace)
                 RangSommet = question4.rangDesSommets(
-                    matriceAdj, matriceValeurs, 0, np.array([]))
+                    matriceAdj, matriceValeurs, 0, np.empty((0, 5), dtype=int))
                 affichage.afficherRang(RangSommet, fichierTrace)
             else:
                 print('Circuit détecté, impossible de calculer le rang !')
                 fichierTrace.write(
                     'Circuit detecte, impossible de calculer le rang !')
-        # elif choixSecond == '5' :
+
+        elif choixSecond == '5':
+
+            if(question3.detectionCircuit(matriceAdj, matriceValeurs, fichierTrace) == 1):
+                question3.detectionOrdonnancement(tabContr, fichierTrace)
+                RangSommet = question4.rangDesSommets(
+                    matriceAdj, matriceValeurs, 0, np.empty((0, 5), dtype=int))
+                print('')
+                df = question5.calendrierTot(tabContr, RangSommet)
+                fichierTrace.write('\n')
+                fichierTrace.write(df.to_string())
+            else:
+                print('Circuit détecté, impossible de calculer le rang !')
+                fichierTrace.write(
+                    'Circuit detecte, impossible de calculer le rang !')
 
         elif choixSecond == '6':
             affichage.afficherGraphOrdo(tabContr, fichierTrace)
@@ -116,6 +131,9 @@ def menu():
                 RangSommet = question4.rangDesSommets(
                     matriceAdj, matriceValeurs, 0, np.array([]))
                 affichage.afficherRang(RangSommet, fichierTrace)
+                df = question5.calendrierTot(tabContr, RangSommet)
+                fichierTrace.write('\n')
+                fichierTrace.write(df.to_string())
             else:
                 print('Circuit détecté, impossible de calculer le rang !')
                 fichierTrace.write(

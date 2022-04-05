@@ -5,6 +5,8 @@ import pandas as pd
 def choisirTXT(choix):
     df = pd.read_fwf('table ' + str(choix) + '.txt',
                      delim_whitespace=True, header=None, engine='python')
+    # df = pd.read_fwf('tableauContrainte.txt',
+    #                  delim_whitespace=True, header=None, engine='python')
     # print(df)
     tabContr = df.to_numpy(dtype=np.int32)
     tabContr[tabContr < 0] = -1

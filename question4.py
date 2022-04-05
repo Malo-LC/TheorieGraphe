@@ -24,8 +24,10 @@ def rangDesSommets(adjacence, valeurs, cptRang, RangDuSommet):
     for i in range(len(PasDePred)):
         aAjouterBis = aAjouterBis + str(PasDePred[i]) + " "
     aAjouter = 'rang ' + str(cptRang) + ' -> ' + aAjouterBis
-
-    RangDuSommet = np.append(RangDuSommet, aAjouter)
+    while(len(PasDePred) < 5):
+        PasDePred = np.append(PasDePred, -1)
+    # print(PasDePred)
+    RangDuSommet = np.insert(RangDuSommet, cptRang, PasDePred, axis=0)
     for i in range(len(PasDePred)):  # On supprime les colonnes
         for j in range(1, col):
             if(adjacence[0][j] == PasDePred[i]):
@@ -46,5 +48,4 @@ def rangDesSommets(adjacence, valeurs, cptRang, RangDuSommet):
     # On relance la fonction avec les nouveaux tableaux
     if(len(sommets) == 1 and len(PasDePred) != 0):
         return RangDuSommet
-
     return rangDesSommets(adjacence, valeurs, cptRang+1, RangDuSommet)
