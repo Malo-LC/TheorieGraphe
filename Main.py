@@ -1,22 +1,21 @@
-from asyncore import write
 import numpy as np
 import initTable
 import affichage
-import question2
+import question2  # Import des questions, deuis les autres fichiers
 import question3
 import question4
 import question5
 import os
 
 
-def clearConsole():
+def clearConsole():  # clear la console
     command = 'clear'
     if os.name in ('nt', 'dos'):  # Si windows, c'est cls
         command = 'cls'
     os.system(command)
 
 
-def affichageQuestion():
+def affichageQuestion():  # afficher les questions
     print('\n')
     print("Que voulez vous faire ensuite?")
     print("1 - Afficher le graphe d’ordonnancement")
@@ -30,7 +29,7 @@ def affichageQuestion():
 
 
 def ToutPartout():
-    for i in range(1, 13):
+    for i in range(1, 13):  # boucle pour executer tout dans les 12 fichiers
         choix = str(i)
         print("Table " + choix + " choisie")
         fichierTrace = open(("TraceTable " + str(choix) + ".txt"), "w")
@@ -77,16 +76,29 @@ def ToutPartout():
 
             fichierTrace.write(calTard.to_string())
             fichierTrace.write('\n')
+
+            marge = question5.calculMarges(calTot, calTard)
+            print("")
+            print("Marge Totale")
+            print(marge)
+
+            fichierTrace.write('\n')
+            fichierTrace.write('Marge Totale\n')
+
+            fichierTrace.write(marge.to_string())
+            fichierTrace.write('\n')
+
         else:
             print('Circuit détecté, impossible de calculer le rang !')
             fichierTrace.write(
                 'Circuit detecte, impossible de calculer le rang !')
 
 
-def menu():
+def menu():  # Menu de choix de la question
     clearConsole()
     print('Projet de théorie des graphes.')
     while True:
+        # sécurité pour le choix du fichier (un nombre entre 1 et 12, et pas une lettre)
         try:
             choix = input(
                 'Quel table voulez vous choisir ? (entre 1 et 12 inclus)  : ')
@@ -94,12 +106,13 @@ def menu():
             if(int(choix) < 1 or int(choix) > 12):
                 int('pass')
             break
-        except ValueError:
+        except ValueError:  # si c'est pas un int
             print("Il faut un nombre entre 1 et 12 !!!!")
             pass
 
     print("Table " + choix + " choisie")
     fichierTrace = open(("TraceTable " + str(choix) + ".txt"), "w")
+    # initialisation des données necessaires pour la suite
     tabContr = initTable.choisirTXT(choix)
     tabContr = initTable.AlphaOmega(tabContr)
     matriceAdj = question2.matriceAdjacence(tabContr)
@@ -108,8 +121,8 @@ def menu():
     affichageQuestion()
     choixSecond = input(
         "Choisissez le nombre correspondant à la ligne : ")
-    while (choixSecond != '7'):
-
+    while (choixSecond != '7'):  # faire un choix
+        # pour chaque choix, on lance la fonction associé et on affiche les résultats
         if (choixSecond == '1'):
             affichage.afficherGraphOrdo(tabContr, fichierTrace)
         elif (choixSecond == '2'):
@@ -178,6 +191,17 @@ def menu():
                 fichierTrace.write(calTard.to_string())
                 fichierTrace.write('\n')
 
+                marge = question5.calculMarges(calTot, calTard)
+                print("")
+                print("Marge Totale")
+                print(marge)
+
+                fichierTrace.write('\n')
+                fichierTrace.write('Marge Totale\n')
+
+                fichierTrace.write(marge.to_string())
+                fichierTrace.write('\n')
+
             else:
                 print('Circuit détecté, impossible de calculer le rang !')
                 fichierTrace.write(
@@ -223,6 +247,18 @@ def menu():
 
                 fichierTrace.write(calTard.to_string())
                 fichierTrace.write('\n')
+
+                marge = question5.calculMarges(calTot, calTard)
+                print("")
+                print("Marge Totale")
+                print(marge)
+
+                fichierTrace.write('\n')
+                fichierTrace.write('Marge Totale\n')
+
+                fichierTrace.write(marge.to_string())
+                fichierTrace.write('\n')
+
             else:
                 print('Circuit détecté, impossible de calculer le rang !')
                 fichierTrace.write(

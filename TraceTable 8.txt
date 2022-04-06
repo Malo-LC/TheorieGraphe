@@ -112,3 +112,18 @@ Dates au plus tard
 6      2      8         9           [9]                  [7]                  7
 10     3      9         9          [11]                 [16]                 16
 11     4     11         0            []                 [25]                 25
+
+Marge Totale
+    Rang  Tache  Longueur  Date au plus tot  Date au plus tard  Marge totale
+0      0      0         0                 0                  3             3
+1      0     10        10                 0                  0             0
+2      1      4         4                 0                  0             0
+3      1      5         5                 0                  7             7
+4      1      6         6                 0                  2             2
+5      1      7         7                 0                 11            11
+6      2      1         1                10                  7            -3
+7      2      2         2                 7                 13             6
+8      2      3         3                10                 14             4
+9      2      8         9                 7                 15             8
+10     3      9         9                16                 16             0
+11     4     11         0                25                 25             0
