@@ -2,7 +2,7 @@ import numpy as np
 
 
 def rangDesSommets(adjacence, valeurs, cptRang, RangDuSommet):
-    # assez similaire a l'exo 4
+    # assez similaire a l'exo 3
     shape = adjacence.shape
     lin = shape[0]  # On initialise tout
     col = shape[1]

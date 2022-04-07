@@ -1,24 +1,27 @@
-il y a 15 sommets
-il y a 18 arcs
-0 -> 1 = 0
-0 -> 2 = 0
-1 -> 3 = 2
-2 -> 4 = 5
-3 -> 4 = 4
-13 -> 4 = 9
-4 -> 5 = 2
-5 -> 6 = 5
-6 -> 7 = 5
-7 -> 8 = 9
-8 -> 9 = 2
-11 -> 10 = 1
-4 -> 11 = 2
-3 -> 12 = 4
-6 -> 13 = 5
-12 -> 13 = 1
-9 -> 14 = 5
-10 -> 14 = 1
 
+Detection du circuit
+Methode d'elimination des points d'entree
+Sommets restants : [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14]
+Sommets sans predecesseurs : [0]
+Suppression des sommets...
+
+Sommets restants : [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14]
+Sommets sans predecesseurs : [1 2]
+Suppression des sommets...
+
+Sommets restants : [ 3  4  5  6  7  8  9 10 11 12 13 14]
+Sommets sans predecesseurs : [3]
+Suppression des sommets...
+
+Sommets restants : [ 4  5  6  7  8  9 10 11 12 13 14]
+Sommets sans predecesseurs : [12]
+Suppression des sommets...
+
+Sommets restants : [ 4  5  6  7  8  9 10 11 13 14]
+Sommets sans predecesseurs : []
+Suppression des sommets...
+Il y a un circuit ! 
+ Ce n'est pas un graph d'ordonnancement
  Matrice d'adjacence
 [[ 0  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14]
  [ 0  0  1  1  0  0  0  0  0  0  0  0  0  0  0  0]
@@ -54,27 +57,23 @@ Matrice des valeurs
 12  *   *   *   *   *   *   *   *   *   *   *   *   *   12  *   
 13  *   *   *   *   13  *   *   *   *   *   *   *   *   *   *   
 14  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   
-
-Detection du circuit
-Methode d'elimination des points d'entree
-Sommets restants : [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14]
-Sommets sans predecesseurs : [0]
-Suppression des sommets...
-
-Sommets restants : [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14]
-Sommets sans predecesseurs : [1 2]
-Suppression des sommets...
-
-Sommets restants : [ 3  4  5  6  7  8  9 10 11 12 13 14]
-Sommets sans predecesseurs : [3]
-Suppression des sommets...
-
-Sommets restants : [ 4  5  6  7  8  9 10 11 12 13 14]
-Sommets sans predecesseurs : [12]
-Suppression des sommets...
-
-Sommets restants : [ 4  5  6  7  8  9 10 11 13 14]
-Sommets sans predecesseurs : []
-Suppression des sommets...
-Il y a un circuit ! 
- Ce n'est pas un graph d'ordonnancementCircuit detecte, impossible de calculer le rang !
+il y a 15 sommets
+il y a 18 arcs
+0 -> 1 = 0
+0 -> 2 = 0
+1 -> 3 = 2
+2 -> 4 = 5
+3 -> 4 = 4
+13 -> 4 = 9
+4 -> 5 = 2
+5 -> 6 = 5
+6 -> 7 = 5
+7 -> 8 = 9
+8 -> 9 = 2
+11 -> 10 = 1
+4 -> 11 = 2
+3 -> 12 = 4
+6 -> 13 = 5
+12 -> 13 = 1
+9 -> 14 = 5
+10 -> 14 = 1

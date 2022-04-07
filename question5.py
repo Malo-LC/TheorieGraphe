@@ -119,14 +119,15 @@ def calendrierTard(data, Rang):
 def calculMarges(calTot, calTard):
     dateAuPlusTot = calTot['Date au plus tot']
     dateAuPlusTard = calTard['Date au plus Tard']
+    # on reprend toutes les colonnes qui nous interessent des calendriers
     rang = calTot['Rang']
     Tache = calTot['Tache']
     longueur = calTot['longueur']
-    Marges = dateAuPlusTard - dateAuPlusTot
+    Marges = dateAuPlusTard - dateAuPlusTot  # calcul des marges
     df = pd.DataFrame()
     df['Rang'] = rang
     df['Tache'] = Tache
-    df['Longueur'] = longueur
+    df['Longueur'] = longueur  # creation du tableau des marges
     df['Date au plus tot'] = dateAuPlusTot
     df['Date au plus tard'] = dateAuPlusTard
     df['Marge totale'] = Marges

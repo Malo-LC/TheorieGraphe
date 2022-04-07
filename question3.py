@@ -26,7 +26,13 @@ def detectionCircuit(adjacence, valeurs, f):
         cpt = 0
         for j in range(1, lin):
             # dans le tableau d'adjacence, ceux qui n'ont pas de 1 dans une colonne de la matrice d'adjacence
-            # ca veut dire qu'il n'a pas de predecesseur
+            # ca veut dire qu'il n'a pas de predecesseur (que des * dans la matrice des Valeurs)
+
+            # Ici on utilise la matrice d'adjacence a la place de la matrice des valeurs, car
+            # a cause de numpy, la matrice des vcaleurs est en str, et donc impossible de le comparer avec des ints
+            # on obtiens une erreur si on applique la fonction int() sur autre chose qu'un nombre
+            # mais comme les 1 de la matrice d'adjacence sont au meme endroit que dans la matrice des valeurs,
+            # nous utilisons la matrices des valeurs, qui elle est en int !!
             if(adjacence[j][i] == 0):
                 cpt += 1
             if(cpt == (lin-1)):  # si le compteur = au nb de lignes, c'est que la colonne est rempli de 0
