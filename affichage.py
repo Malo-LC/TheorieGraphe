@@ -1,6 +1,3 @@
-from this import d
-
-
 def nbSommets(data):  # nombre de sommets = nb de lignes
     shape = data.shape
     return shape[0]

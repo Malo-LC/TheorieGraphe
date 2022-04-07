@@ -1,7 +1,7 @@
 import numpy as np
 import initTable
 import affichage
-import question2  # Import des questions, deuis les autres fichiers
+import question2  # Import des fonctions, deuis les autres fichiers
 import question3
 import question4
 import question5
@@ -97,6 +97,7 @@ def ToutPartout():
 def menu():  # Menu de choix de la question
     clearConsole()
     print('Projet de théorie des graphes.')
+    print('Malo Le Corvec - Baptiste Keunebroek - Clement Le Corre - Tony Koudache')
     while True:
         # sécurité pour le choix du fichier (un nombre entre 1 et 12, et pas une lettre)
         try:
