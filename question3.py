@@ -70,7 +70,7 @@ def detectionCircuit(adjacence, valeurs, f):
     # si il nous reste des sommets dans le tableau mais que il n'y a pas d'etapes sans predecesseurs, il y a un circuit
     if(len(PasDePred) == 0 and len(sommets) > 1):
         print("Il y a un circuit ! \n Ce n'est pas un graph d'ordonnancement")
-        f.write("Il y a un circuit ! \n Ce n'est pas un graph d'ordonnancement")
+        f.write("Il y a un circuit ! \n Ce n'est pas un graph d'ordonnancement\n")
         return 0
     # On relance la fonction avec les nouveaux tableaux actualisés
     return detectionCircuit(adjacence, valeurs, f)

@@ -88,4 +88,5 @@ Sommets restants : [ 3  8  9 10 11 13]
 Sommets sans predecesseurs : []
 Suppression des sommets...
 Il y a un circuit ! 
- Ce n'est pas un graph d'ordonnancementCircuit detecte, impossible de calculer le rang !
+ Ce n'est pas un graph d'ordonnancement
+Circuit detecte, impossible de calculer le rang !
