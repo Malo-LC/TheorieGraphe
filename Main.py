@@ -26,6 +26,7 @@ def affichageQuestion():  # afficher les questions
     print("6 - Executer toutes les opérations")
     print("7 - Quitter")
     print("8 - Executer toutes les opérations sur tout les fichiers")
+    print("9 - Choisir un autre fichier")
 
 
 def ToutPartout():
@@ -267,7 +268,11 @@ def menu():  # Menu de choix de la question
 
         elif choixSecond == '8':
             ToutPartout()
+        elif choixSecond == '9':
+            menu()
+            return
         else:
+            print('')
             print('Choix invalide ! ')
 
         affichageQuestion()
