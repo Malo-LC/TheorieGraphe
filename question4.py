@@ -18,11 +18,6 @@ def rangDesSommets(adjacence, valeurs, cptRang, RangDuSommet):
                 cpt += 1
             if(cpt == (lin-1)):
                 PasDePred = np.append(PasDePred, adjacence[0][i])
-
-    aAjouterBis = ""
-    for i in range(len(PasDePred)):
-        aAjouterBis = aAjouterBis + str(PasDePred[i]) + " "
-    aAjouter = 'rang ' + str(cptRang) + ' -> ' + aAjouterBis
     while(len(PasDePred) < 5):
         PasDePred = np.append(PasDePred, -1)
     RangDuSommet = np.insert(RangDuSommet, cptRang, PasDePred, axis=0)

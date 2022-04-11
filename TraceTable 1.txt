@@ -54,28 +54,3 @@ Matrice des valeurs
 12  *   *   *   *   *   *   *   *   *   *   *   *   *   12  *   
 13  *   *   *   *   13  *   *   *   *   *   *   *   *   *   *   
 14  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   
-
-Detection du circuit
-Methode d'elimination des points d'entree
-Sommets restants : [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14]
-Sommets sans predecesseurs : [0]
-Suppression des sommets...
-
-Sommets restants : [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14]
-Sommets sans predecesseurs : [1 2]
-Suppression des sommets...
-
-Sommets restants : [ 3  4  5  6  7  8  9 10 11 12 13 14]
-Sommets sans predecesseurs : [3]
-Suppression des sommets...
-
-Sommets restants : [ 4  5  6  7  8  9 10 11 12 13 14]
-Sommets sans predecesseurs : [12]
-Suppression des sommets...
-
-Sommets restants : [ 4  5  6  7  8  9 10 11 13 14]
-Sommets sans predecesseurs : []
-Suppression des sommets...
-Il y a un circuit ! 
- Ce n'est pas un graph d'ordonnancement
-Circuit detecte, impossible de calculer le rang !
