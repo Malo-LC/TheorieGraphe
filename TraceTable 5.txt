@@ -1,4 +1,62 @@
+il y a 15 sommets
+il y a 18 arcs
+0 -> 1 = 0
+0 -> 2 = 0
+1 -> 3 = 2
+2 -> 4 = 5
+3 -> 4 = 4
+4 -> 5 = 2
+5 -> 6 = 5
+6 -> 7 = 5
+7 -> 8 = 9
+8 -> 9 = 2
+11 -> 10 = 1
+4 -> 11 = 2
+3 -> 12 = 4
+6 -> 13 = 5
+12 -> 13 = 1
+9 -> 14 = 5
+10 -> 14 = 1
+13 -> 14 = 9
 
+ Matrice d'adjacence
+[[ 0  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14]
+ [ 0  0  1  1  0  0  0  0  0  0  0  0  0  0  0  0]
+ [ 1  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0]
+ [ 2  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0]
+ [ 3  0  0  0  0  1  0  0  0  0  0  0  0  1  0  0]
+ [ 4  0  0  0  0  0  1  0  0  0  0  0  1  0  0  0]
+ [ 5  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0]
+ [ 6  0  0  0  0  0  0  0  1  0  0  0  0  0  1  0]
+ [ 7  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0]
+ [ 8  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0]
+ [ 9  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1]
+ [10  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1]
+ [11  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0]
+ [12  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0]
+ [13  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1]
+ [14  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0]]
+Matrice des valeurs
+
+    0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  
+0   *   0   0   *   *   *   *   *   *   *   *   *   *   *   *   
+1   *   *   *   1   *   *   *   *   *   *   *   *   *   *   *   
+2   *   *   *   *   2   *   *   *   *   *   *   *   *   *   *   
+3   *   *   *   *   3   *   *   *   *   *   *   *   3   *   *   
+4   *   *   *   *   *   4   *   *   *   *   *   4   *   *   *   
+5   *   *   *   *   *   *   5   *   *   *   *   *   *   *   *   
+6   *   *   *   *   *   *   *   6   *   *   *   *   *   6   *   
+7   *   *   *   *   *   *   *   *   7   *   *   *   *   *   *   
+8   *   *   *   *   *   *   *   *   *   8   *   *   *   *   *   
+9   *   *   *   *   *   *   *   *   *   *   *   *   *   *   9   
+10  *   *   *   *   *   *   *   *   *   *   *   *   *   *   10  
+11  *   *   *   *   *   *   *   *   *   *   11  *   *   *   *   
+12  *   *   *   *   *   *   *   *   *   *   *   *   *   12  *   
+13  *   *   *   *   *   *   *   *   *   *   *   *   *   *   13  
+14  *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   
+
+Detection du circuit
+Methode d'elimination des points d'entree
 Sommets restants : [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14]
 Sommets sans predecesseurs : [0]
 Suppression des sommets...
@@ -44,6 +102,19 @@ Les valeurs pour tous les arcs incidents vers l'exterieur a un sommet sont ident
 Les arcs | 0 -> 1 | 0 -> 2 | sont nuls 
 Il n'y a pas d'arcs negatifs
  -> C'est bien un graphe d'ordonnancement
+
+Rang des sommets
+Rang 0 -> 0 
+Rang 1 -> 1 2 
+Rang 2 -> 3 
+Rang 3 -> 4 12 
+Rang 4 -> 5 11 
+Rang 5 -> 6 10 
+Rang 6 -> 7 13 
+Rang 7 -> 8 
+Rang 8 -> 9 
+Rang 9 -> 14 
+
 Dates au plus tot
     Rang  Tache  longueur Predecesseurs Date par predecesseurs  Date au plus tot
 0      0      0         0            []                    [0]                 0
