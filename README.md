@@ -1,5 +1,6 @@
 # TheorieGraphe
 
-Malo Le Corvec - Baptiste Keunebroek - Clement Le Corre - Tony Koudache
+Projet en troisième année en python sur la théorie des graphes.
 
-Projet L en python sur la théorie des graphes. Explication : https://fr.wikipedia.org/wiki/Th%C3%A9orie_des_graphes
+
+[Explications](https://fr.wikipedia.org/wiki/Théorie_des_graphes)
